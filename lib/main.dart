@@ -1,5 +1,5 @@
-
 import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +11,6 @@ import 'package:big_cart/Bindings/intial_bindings.dart';
 import 'package:big_cart/View/Screens/Users_View/favorite.dart';
 import 'package:big_cart/core/Theme/theme.dart';
 import 'package:big_cart/routes.dart';
-
 
 late SharedPreferences sharedPref;
 
@@ -70,7 +69,9 @@ class MyApp extends StatelessWidget {
             );
       },
 // <<<<<<< main
+      // child: const Favorite(),
       child: const MainUserScreen(),
+
 // =======
 //       child: const AcceptOrder(),
 // >>>>>>> main
