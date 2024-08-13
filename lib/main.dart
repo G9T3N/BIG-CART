@@ -1,4 +1,5 @@
 
+import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
             );
       },
 // <<<<<<< main
-      child: const Favorite(),
+      child: const MainUserScreen(),
 // =======
 //       child: const AcceptOrder(),
 // >>>>>>> main

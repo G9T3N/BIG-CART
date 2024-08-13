@@ -44,7 +44,7 @@ class AppTextFormField extends StatelessWidget {
         style: TextStyle(color: Colors.black, fontSize: 14.sp),
         decoration: InputDecoration(
           contentPadding:
-              EdgeInsets.symmetric(vertical: 25.h, horizontal: 10.w),
+              EdgeInsets.symmetric(vertical: 21.h, horizontal: 10.w),
           filled: true,
           fillColor: Colors.white,
           hintText: hintText,
