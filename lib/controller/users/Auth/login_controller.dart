@@ -44,7 +44,6 @@ class LoginControllerImp extends LoginController {
         color: AppColors.profileColor,
       ),
     );
-    statusRequest = StatusRequest.loading;
 
     //! Wait to the receive the response
 
@@ -59,6 +58,7 @@ class LoginControllerImp extends LoginController {
 
     statusRequest = handlingData(response);
     //!  </ Wait to the receive the response>
+    update();
 
     if (statusRequest == StatusRequest.succses) {
       Get.back();
@@ -70,7 +70,6 @@ class LoginControllerImp extends LoginController {
           // store received data
           data = response['user'];
           // make sure that you have token
-
 
           // store token
 

@@ -17,6 +17,7 @@ class SearchBarWidget extends StatelessWidget {
         Expanded(
           flex: 5,
           child: AppTextFormField(
+            productField: false,
             onTap: onTap,
             hintText: "بحث",
             obscureText: false,

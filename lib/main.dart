@@ -1,4 +1,7 @@
+import 'package:big_cart/View/Screens/Users_View/category_product.dart';
 import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
+import 'package:big_cart/View/Screens/Users_View/select_category_screen.dart';
+import 'package:big_cart/View/Screens/onBorading/onborading_page_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -70,7 +73,7 @@ class MyApp extends StatelessWidget {
       },
 // <<<<<<< main
       // child: const Favorite(),
-      child: const MainUserScreen(),
+      child: const SelectCategoryScreen(),
 
 // =======
 //       child: const AcceptOrder(),

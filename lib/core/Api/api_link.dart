@@ -1,6 +1,6 @@
 class AppLink {
   static const String linkServerName =
-      "https://04f5-176-123-18-81.ngrok-free.app";
+      "https://1795-176-123-21-153.ngrok-free.app";
 
   //==============================Auth==============================//
   static const String linkSignUp = "$linkServerName/api/register";

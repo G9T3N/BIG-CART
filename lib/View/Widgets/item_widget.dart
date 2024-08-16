@@ -6,7 +6,7 @@ import 'package:image_pixels/image_pixels.dart';
 class ItemWidget extends StatelessWidget {
   final int index;
   final String itemName;
-  final String itemPrice;
+  final String? itemPrice;
   final void Function()? onTap;
   final bool? isFavorite;
   final String imageName;
@@ -17,10 +17,16 @@ class ItemWidget extends StatelessWidget {
       this.isFavorite,
       required this.itemName,
       required this.imageName,
-      required this.itemPrice,
+      this.itemPrice,
       this.onTap});
   @override
   Widget build(BuildContext context) {
+    String itemname;
+    if (itemName.length > 13) {
+      itemname = itemName.characters.take(12).string;
+    } else {
+      itemname = itemName;
+    }
     return InkWell(
       onTap: onTap,
       child: ClipRRect(
@@ -76,7 +82,11 @@ class ItemWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          itemName,
+                          // softWrap: false,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+
+                          itemname,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         Text(

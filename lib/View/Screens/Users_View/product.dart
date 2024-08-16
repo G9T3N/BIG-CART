@@ -101,44 +101,54 @@ class Product extends StatelessWidget {
               ),
             ),
             //end of bottom sheet design
-            Positioned(
-              top: -30,
-              child: Container(
-                alignment: Alignment.center,
-                width: size.width.w * 0.7,
-                padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
-                height: 70.h,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(6.r),
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppColors.productColor,
-                        offset: const Offset(0, 5),
-                        blurRadius: 0,
-                        spreadRadius: 1),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 6,
-                      child: Text(
-                        "ادخل الكمية",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
+            ImagePixels(
+              imageProvider: AssetImage("assets/images/grape.png"),
+              builder: (context, img) {
+                return Positioned(
+                  top: -30,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: size.width.w * 0.7,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
+                    height: 70.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(6.r),
+                      boxShadow: [
+                        BoxShadow(
+                            color: img.pixelColorAtAlignment!(Alignment.center),
+                            offset: const Offset(0, 5),
+                            blurRadius: 0,
+                            spreadRadius: 1),
+                      ],
                     ),
-                    const Expanded(
-                      flex: 1,
-                      child: AppTextFormField(
-                        hintText: '1',
-                        obscureText: false,
-                        keyboradType: TextInputType.number,
-                      ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 6,
+                          child: Text(
+                            "ادخل الكمية",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: AppTextFormField(
+                            fillColor: img.pixelColorAtAlignment!
+                                    (Alignment.center)
+                                .withOpacity(0.4),
+                            productField: true,
+                            hintText: '1',
+                            obscureText: false,
+                            keyboradType: TextInputType.number,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             ),
             Positioned(
                 left: -50.w,

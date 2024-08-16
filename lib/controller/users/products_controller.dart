@@ -12,7 +12,7 @@ abstract class ProductsController extends GetxController {
   // showCategoriesProduct(BuildContext context, String selectedItemIndex);
   showAllProducts();
 
-  showSingleProducts(String queryParam);
+  // showSingleProducts(String queryParam);
 }
 
 class ProductsControllerImp extends ProductsController {
@@ -98,7 +98,6 @@ class ProductsControllerImp extends ProductsController {
     // print("$statusRequest");
 
     var response = await productData.getAllProductData();
-    statusRequest = StatusRequest.loading;
     // print(response);
     statusRequest = handlingData(response);
     // print("$statusRequest");
@@ -119,8 +118,49 @@ class ProductsControllerImp extends ProductsController {
     update();
   }
 
-  @override
-  showSingleProducts(String queryParam) async {
+  // showSingleProducts(String queryParam) async {
+  //   update();
+
+  //   // var formdata = formkey.currentState;
+  //   // if (formdata!.validate()) {
+  //   // wariningDialog(_, 20, statusRequest);
+  //   print("$statusRequest");
+
+  //   var response = await productData.getSingleProductData(queryParam);
+  //   print(response);
+  //   statusRequest = handlingData(response);
+  //   print("$statusRequest");
+  //   if (statusRequest == StatusRequest.succses) {
+  //     // Get.back();
+  //     //?fetch data success than store user data and login
+  //     if (response['id'] != null) {
+  //       singleProductData = response;
+  //       // print(response['role_id']);
+  //       // if (response['role_id'] == 1) {
+  //       // print("${response['token']}");
+  //       print(response['id']);
+  //       Get.to(
+  //         () => Product(
+  //             productName: singleProductData['name'],
+  //             quantity: response['quantity'],
+  //             price: response['prais'],
+  //             description: response['description']),
+  //       );
+  //       update();
+
+  //       // Get.offAllNamed(AppRoute.home);
+  //     } else if (response['message'] != null) {}
+  //   } else {
+  //     print("object");
+  //   }
+
+  //   update();
+  // }
+
+//! </login with Mysql>
+
+  showProductsOfSingleCategory() async {
+    statusRequest = StatusRequest.loading;
     update();
 
     // var formdata = formkey.currentState;
@@ -128,8 +168,7 @@ class ProductsControllerImp extends ProductsController {
     // wariningDialog(_, 20, statusRequest);
     print("$statusRequest");
 
-    var response = await productData.getSingleProductData(queryParam);
-    statusRequest = StatusRequest.loading;
+    var response = await productData.getProductsOfSingleCategory("4");
     print(response);
     statusRequest = handlingData(response);
     print("$statusRequest");
@@ -160,10 +199,9 @@ class ProductsControllerImp extends ProductsController {
     update();
   }
 
-//! </login with Mysql>
   @override
   onInit() {
-    showAllProducts();
+    // showAllProducts();
     super.onInit();
   }
 }

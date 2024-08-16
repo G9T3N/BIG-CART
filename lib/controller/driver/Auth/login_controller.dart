@@ -35,7 +35,6 @@ class LoginControllerDriverImp extends LoginControllerDriver {
   loginWithEmail(
     BuildContext context,
   ) async {
-    statusRequest = StatusRequest.loading;
     Get.defaultDialog(
       titleStyle: TextStyle(color: Colors.black, fontFamily: "Almarai"),
       title: "يرحى الانتظار",

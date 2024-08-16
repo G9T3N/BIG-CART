@@ -35,7 +35,7 @@ class SignupControllerImp extends SignupController {
           color: AppColors.profileColor,
         ));
     // var formdata = formkey.currentState;
-    statusRequest = StatusRequest.loading;
+    // statusRequest = StatusRequest.loading;
     // if (formdata!.validate()) {
     //   wariningDialog(context, 20, statusRequest);
 

@@ -28,6 +28,7 @@ class AppRoute {
   static const String acceptOrder = "/acceptOrder";
   static const String cart = "/cart";
   static const String cowScreen = "/cowScreen";
+  static const String singleCategoryProduct = "/singleCategoryProduct";
 
 //====================Auth-Driver===============================
 
@@ -47,7 +48,8 @@ class AppRoute {
   static const String forgetPassFarmer = "/forgetpassfarmer";
   static const String loginFarmer = "/LoginFarmer";
   static const String resetPasswordFarmer = "/ResetPasswordFarmer";
-  static const String successResetPassScreenFarmer = "/SuccessResetPassScreenFarmer";
+  static const String successResetPassScreenFarmer =
+      "/SuccessResetPassScreenFarmer";
 
 //====================Farmer-Screens===============================
 
@@ -57,5 +59,4 @@ class AppRoute {
   static const String comments = "/Comments";
   static const String sections = "/Sections";
   static const String trackOrder = "/TrackOrder";
-
 }

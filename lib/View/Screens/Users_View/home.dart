@@ -1,3 +1,4 @@
+import 'package:big_cart/View/Screens/Users_View/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,6 +46,7 @@ class Home extends StatelessWidget {
           child: Column(children: [
             // const Drawer(),
             AppBar(
+              clipBehavior: Clip.antiAlias,
               systemOverlayStyle: const SystemUiOverlayStyle(
                   systemNavigationBarColor: Colors.transparent),
               title: Text(
@@ -68,7 +70,6 @@ class Home extends StatelessWidget {
             Expanded(
               child: ListView(
                 shrinkWrap: true,
-                clipBehavior: Clip.none,
                 children: [
                   SizedBox(
                     height: 200.h,
@@ -113,6 +114,7 @@ class Home extends StatelessWidget {
                           widget: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: GridView.count(
+                              clipBehavior: Clip.none,
                               physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               semanticChildCount: 2,
@@ -124,9 +126,16 @@ class Home extends StatelessWidget {
                                 ...List.generate(controller.data.length, (i) {
                                   return ItemWidget(
                                     onTap: () {
-                                      i++;
-                                      String queryParam = i.toString();
-                                      controller.showSingleProducts(queryParam);
+                                      Get.to(
+                                        () => Product(
+                                            productName: controller.data[i]
+                                                ['name'],
+                                            quantity: controller.data[i]
+                                                ['quantity'],
+                                            price: controller.data[i]['prais'],
+                                            description: controller.data[i]
+                                                ['description']),
+                                      );
                                     },
                                     index: i,
                                     itemPrice: controller.data[i]["prais"],
