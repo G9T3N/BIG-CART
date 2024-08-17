@@ -48,8 +48,7 @@ class AppTextFormField extends StatelessWidget {
         cursorHeight: 25.h,
         style: TextStyle(color: Colors.black, fontSize: 14.sp),
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(
-              top: productField == true ? 12.h : 21.5.h, right: 4.w),
+          contentPadding: EdgeInsets.only(top: 43.h, right: 8.w),
           filled: true,
           fillColor: fillColor ?? Colors.white,
           hintText: hintText,

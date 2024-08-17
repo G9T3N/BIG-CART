@@ -11,6 +11,7 @@ import 'package:big_cart/core/constant/app_colors.dart';
 
 class Product extends StatelessWidget {
   final String productName;
+  final String productimage;
   final int quantity;
   final String price;
   final String description;
@@ -20,7 +21,7 @@ class Product extends StatelessWidget {
       required this.productName,
       required this.quantity,
       required this.price,
-      required this.description});
+      required this.description, required this.productimage});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -102,7 +103,7 @@ class Product extends StatelessWidget {
             ),
             //end of bottom sheet design
             ImagePixels(
-              imageProvider: AssetImage("assets/images/grape.png"),
+              imageProvider: AssetImage(productimage),
               builder: (context, img) {
                 return Positioned(
                   top: -30,
@@ -176,7 +177,7 @@ class Product extends StatelessWidget {
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(120.r)),
                   child: ImagePixels.container(
-                    imageProvider: const AssetImage("assets/images/grape.png"),
+                    imageProvider:  NetworkImage(productimage),
                     colorAlignment: Alignment.center,
                     child: SizedBox(
                       height: 300.h,
@@ -192,8 +193,8 @@ class Product extends StatelessWidget {
               ),
               Positioned(
                 top: 120.h,
-                child: Image.asset(
-                  "assets/images/grape.png",
+                child: Image.network(
+                 productimage,
                   width: 250.w,
                   fit: BoxFit.cover,
                 ),

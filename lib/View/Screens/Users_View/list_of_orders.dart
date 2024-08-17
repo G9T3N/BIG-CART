@@ -1,7 +1,9 @@
+import 'package:big_cart/View/Screens/Users_View/accept_order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:big_cart/View/Widgets/app_button.dart';
+import 'package:get/get.dart';
 
 class ListOfOrders extends StatefulWidget {
   const ListOfOrders({super.key});
@@ -148,7 +150,12 @@ class ListOfOrdersState extends State<ListOfOrders>
                     initialIndex == 1
                         ? Padding(
                             padding: EdgeInsets.symmetric(horizontal: 80.0),
-                            child: AppButton(title: 'تاكيد'),
+                            child: AppButton(
+                              title: 'تاكيد',
+                              onPressed: () {
+                                Get.to(AcceptOrder());
+                              },
+                            ),
                           )
                         : Padding(
                             padding: EdgeInsets.symmetric(horizontal: 80.0),

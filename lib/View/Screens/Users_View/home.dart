@@ -1,4 +1,5 @@
 import 'package:big_cart/View/Screens/Users_View/product.dart';
+import 'package:big_cart/core/Api/api_link.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,8 +19,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BottomNavigationControllerImp controllerImp =
-    //     Get.put(BottomNavigationControllerImp());
+    ProductsControllerImp controllerImp = Get.put(ProductsControllerImp());
+    controllerImp.showAllProducts();
     final List<String> grapes = <String>[
       'عناب خارجي',
       'عناب عامري',
@@ -128,6 +129,8 @@ class Home extends StatelessWidget {
                                     onTap: () {
                                       Get.to(
                                         () => Product(
+                                            productimage:
+                                                "${AppLink.linkServerStotage}${controller.data[i]["photo"]}",
                                             productName: controller.data[i]
                                                 ['name'],
                                             quantity: controller.data[i]
@@ -140,7 +143,8 @@ class Home extends StatelessWidget {
                                     index: i,
                                     itemPrice: controller.data[i]["prais"],
                                     itemName: controller.data[i]["name"],
-                                    imageName: "assets/images/grape$i.png",
+                                    imageName:
+                                        "${AppLink.linkServerStotage}${controller.data[i]["photo"]}",
                                   );
                                 })
                               ],

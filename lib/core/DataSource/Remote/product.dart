@@ -35,12 +35,10 @@ class ProductData {
     );
   }
 
-  getProductsOfSingleCategory(String categoryIdQueryParameter) async {
+  getProductsOfSingleCategory(categoryIdQueryParameter) async {
     print("${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter");
     var response = await crud.getData(
-      "${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter"
-          .toString(),
-    );
+        "${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter");
     return response.fold(
       (l) => l,
       (r) => r,

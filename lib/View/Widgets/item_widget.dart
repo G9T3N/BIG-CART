@@ -38,7 +38,7 @@ class ItemWidget extends StatelessWidget {
           topRight: Radius.circular(45.r),
         ),
         child: ImagePixels.container(
-          imageProvider: AssetImage(
+          imageProvider: NetworkImage(
             imageName,
           ),
           colorAlignment: Alignment.center,
@@ -66,8 +66,9 @@ class ItemWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Center(
-                  child: Image.asset(
-                    "assets/images/grape$index.png",
+                  child: Image.network(
+                    // "assets/images/grape$index.png",
+                    imageName,
                     fit: BoxFit.cover,
                     height: 85.h,
                   ),

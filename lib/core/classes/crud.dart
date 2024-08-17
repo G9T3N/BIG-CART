@@ -84,13 +84,14 @@ class Crud {
   Future<Either<StatusRequest, List<dynamic>>> getData(String linkUrl,
       {String myToken = ""}) async {
     try {
+      // print("response Crud get");
       if (await checkInternet()) {
+        print(checkInternet());
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.acceptHeader: '*/*',
-            HttpHeaders.authorizationHeader: sharedPref.getString("token")!
-            // ?? myToken,
+            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
+                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8"
           },
         );
 
@@ -121,8 +122,8 @@ class Crud {
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.authorizationHeader:
-                sharedPref.getString("token")! ?? myToken,
+            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
+                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8",
           },
         );
 

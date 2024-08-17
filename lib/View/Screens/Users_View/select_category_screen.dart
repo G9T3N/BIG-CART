@@ -58,10 +58,16 @@ class SelectCategoryScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return CategoryWidget(
                             onTap: () {
-                              controllerImp.index =
-                                  controller.data[index]["id"];
-                              print("========index${controllerImp.index}");
-                              controller.goToSelectedCategory(index);
+                              // controllerImp.index =
+                              //     controller.data[index]["id"];
+                              print("========index$index");
+                              controller.goToSelectedCategory(index, [
+                                {
+                                  "category_name": controller.data[index]
+                                      ["name"],
+                                  "id": controller.data[index]["id"]
+                                }
+                              ]);
                             },
                             categoryName: controller.data[index]["name"] ??
                                 controller.categoryName[index],

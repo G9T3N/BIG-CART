@@ -29,7 +29,7 @@ class ProductsControllerImp extends ProductsController {
   var data = [];
   Map<String, dynamic> singleProductData = {};
 
-  int index = 0;
+  // int index = 0;
 
   // ! <login with Mysql>
   @override
@@ -168,30 +168,36 @@ class ProductsControllerImp extends ProductsController {
     // wariningDialog(_, 20, statusRequest);
     print("$statusRequest");
 
-    var response = await productData.getProductsOfSingleCategory("4");
+    var response = await productData.getProductsOfSingleCategory(4);
     print(response);
     statusRequest = handlingData(response);
-    print("$statusRequest");
+    data = response;
     if (statusRequest == StatusRequest.succses) {
+      print("===================$statusRequest");
+      print("===================$response");
+
       // Get.back();
       //?fetch data success than store user data and login
-      if (response['id'] != null) {
-        singleProductData = response;
+      if (response != null) {
+        // singleProductData =
         // print(response['role_id']);
         // if (response['role_id'] == 1) {
         // print("${response['token']}");
-        print(response['id']);
-        Get.to(
-          () => Product(
-              productName: singleProductData['name'],
-              quantity: response['quantity'],
-              price: response['prais'],
-              description: response['description']),
-        );
+        // print(response['id']);
+        // Get.to(
+        //   () => Product(
+        //       productName: singleProductData['name'],
+        //       quantity: response['quantity'],
+        //       price: response['prais'],
+        //       description: response['description']),
+        // );
         update();
 
         // Get.offAllNamed(AppRoute.home);
-      } else if (response['message'] != null) {}
+      } else if (response['message'] != null) {
+      } else {
+        print("error after succses ful");
+      }
     } else {
       print("object");
     }

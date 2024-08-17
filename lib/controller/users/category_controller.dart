@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 abstract class CategoryController extends GetxController {
   showAllCategories();
-  goToSelectedCategory(int index);
+  goToSelectedCategory(int index, List arguments);
 }
 
 class CategoryControllerImp extends CategoryController {
@@ -36,21 +36,23 @@ class CategoryControllerImp extends CategoryController {
     AppRoute.favorite,
     AppRoute.cowScreen,
   ];
+
+  List arguments = [];
+
   // ! <login with Mysql>
   @override
   showAllCategories() async {
-    update();
-
     // var formdata = formkey.currentState;
     // if (formdata!.validate()) {
     // wariningDialog(_, 20, statusRequest);
     // print("$statusRequest");
 
     var response = await categoryData.getdata();
-    // print(response);
+    print(response);
     statusRequest = handlingData(response);
-    // print("$statusRequest");
+    print("$statusRequest");
     if (statusRequest == StatusRequest.succses) {
+      update();
       // Get.back();
       //?fetch data success than store user data and login
       if (response[0]['id'] != null) {
@@ -76,7 +78,7 @@ class CategoryControllerImp extends CategoryController {
   }
 
   @override
-  goToSelectedCategory(int index) {
-    Get.toNamed(categoryNavigate[index]);
+  goToSelectedCategory(int index, List arguments) {
+    Get.toNamed(categoryNavigate[index], arguments: arguments);
   }
 }
