@@ -9,11 +9,9 @@ class CategoryData {
     this.crud,
   );
   getdata() async {
-    print(AppLink.linkAllCategories);
     var response = await crud.getData(
       AppLink.linkAllCategories,
     );
-    print("====data $response");
 
     return response.fold(
       (l) => l,

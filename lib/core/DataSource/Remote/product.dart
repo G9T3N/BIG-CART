@@ -35,14 +35,13 @@ class ProductData {
     );
   }
 
-  // // getCategoryProductData(String categoryIdQueryParameter) async {
-  // //   print("${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter");
-  // //   var response = await crud.getData(
-  // //     "${AppLink.linkLogin}$categoryIdQueryParameter",
-  // //   );
-  // //   return response.fold(
-  // //     (l) => l,
-  // //     (r) => r,
-  // //   );
-  // }
+  getProductsOfSingleCategory(categoryIdQueryParameter) async {
+    print("${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter");
+    var response = await crud.getData(
+        "${AppLink.linkSingleCategoryProducts}$categoryIdQueryParameter");
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
+  }
 }

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 abstract class CategoryController extends GetxController {
   showAllCategories();
-  goToSelectedCategory();
+  goToSelectedCategory(int index, List arguments);
 }
 
 class CategoryControllerImp extends CategoryController {
@@ -16,7 +16,7 @@ class CategoryControllerImp extends CategoryController {
 
   StatusRequest statusRequest = StatusRequest.loading;
   late int index;
-  var data = [];
+  List<dynamic> data = [];
   final List<String> categoryImage = <String>[
     "assets/images/vegetables.png",
     "assets/images/grains.png",
@@ -30,48 +30,43 @@ class CategoryControllerImp extends CategoryController {
     'فواكة',
     ' المواشي\n والدواجن',
   ];
-  final List<void Function()> categoryNavigate = <void Function()>[
-    () {},
-    () {},
-    () {},
-    () {
-      Get.toNamed(AppRoute.cowScreen);
-    },
+  List categoryNavigate = [
+    AppRoute.home,
+    AppRoute.product,
+    AppRoute.favorite,
+    AppRoute.cowScreen,
   ];
+
+  List arguments = [];
+
   // ! <login with Mysql>
   @override
   showAllCategories() async {
     // var formdata = formkey.currentState;
     // if (formdata!.validate()) {
     // wariningDialog(_, 20, statusRequest);
-    print("$statusRequest");
-
-    statusRequest = StatusRequest.loading;
+    // print("$statusRequest");
 
     var response = await categoryData.getdata();
-    print("======getdatafac${categoryData.getdata()}");
+    print(response);
     statusRequest = handlingData(response);
     print("$statusRequest");
-    data.addAll(response);
-    update();
     if (statusRequest == StatusRequest.succses) {
-    update();
+      update();
       // Get.back();
       //?fetch data success than store user data and login
       if (response[0]['id'] != null) {
+        data.addAll(response);
         // print(response['role_id']);
         // if (response['role_id'] == 1) {
         // print("${response['token']}");
-        print(data);
-        // Get.offAllNamed(AppRoute.home);
+        // print(data);
       } else if (response['message'] != null) {}
     } else {
-    update();
-
       print("object");
     }
 
-    // update();
+    update();
   }
 
 //! </login with Mysql>
@@ -83,5 +78,7 @@ class CategoryControllerImp extends CategoryController {
   }
 
   @override
-  goToSelectedCategory() {}
+  goToSelectedCategory(int index, List arguments) {
+    Get.toNamed(categoryNavigate[index], arguments: arguments);
+  }
 }

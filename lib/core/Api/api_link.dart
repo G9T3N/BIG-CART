@@ -1,7 +1,8 @@
 class AppLink {
   static const String linkServerName =
-      "https://04f5-176-123-18-81.ngrok-free.app";
-
+      "https://4d64-176-123-24-147.ngrok-free.app";
+//======================== Image-Files=================================
+  static const String linkServerStotage = "$linkServerName/storage/";
   //==============================Auth==============================//
   static const String linkSignUp = "$linkServerName/api/register";
   static const String linkLogin = "$linkServerName/api/login";

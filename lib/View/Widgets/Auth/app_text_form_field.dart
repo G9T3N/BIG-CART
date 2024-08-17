@@ -7,6 +7,9 @@ class AppTextFormField extends StatelessWidget {
   final Icon? icon;
   final Icon? suffixIcon;
   final bool obscureText;
+  final bool? productField;
+  final Color? fillColor;
+
   final void Function()? onTap;
 
   final TextEditingController? controller;
@@ -20,6 +23,8 @@ class AppTextFormField extends StatelessWidget {
     this.keyboradType,
     this.controller,
     this.onTap,
+    this.productField,
+    this.fillColor,
   });
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class AppTextFormField extends StatelessWidget {
         // color: Colors.white,
       ),
       child: TextFormField(
-        clipBehavior: Clip.hardEdge,
+        maxLines: 1,
         onTap: onTap,
         controller: controller,
         keyboardType: keyboradType,
@@ -43,10 +48,9 @@ class AppTextFormField extends StatelessWidget {
         cursorHeight: 25.h,
         style: TextStyle(color: Colors.black, fontSize: 14.sp),
         decoration: InputDecoration(
-          contentPadding:
-              EdgeInsets.symmetric(vertical: 25.h, horizontal: 10.w),
+          contentPadding: EdgeInsets.only(top: 43.h, right: 8.w),
           filled: true,
-          fillColor: Colors.white,
+          fillColor: fillColor ?? Colors.white,
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.bodySmall,
           hintTextDirection: TextDirection.rtl,

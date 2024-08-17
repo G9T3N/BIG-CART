@@ -30,7 +30,9 @@ class ProfileControllerImp extends ProfileController {
     },
     () {},
     () {},
-    () {},
+    () {
+    
+    },
     () {
       Get.toNamed(AppRoute.selectionScreen);
     },

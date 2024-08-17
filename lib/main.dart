@@ -1,7 +1,4 @@
-import 'package:big_cart/View/Screens/Driver_View/auth/login_driver.dart';
-import 'package:big_cart/view/Screens/Driver_View/SectionsDeliverdart';
-import 'package:big_cart/view/Screens/Driver_View/google_map.dart';
-import 'package:big_cart/view/Screens/Users_View/main_user_screen.dart';
+
 import 'package:big_cart/view/Screens/farmer/auth/login_farmer.dart';
 import 'package:big_cart/view/Screens/onBorading/splash_screen.dart';
 import 'package:flutter/material.dart';

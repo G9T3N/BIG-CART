@@ -4,16 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemWidgetList extends StatelessWidget {
   final int index;
+  final void Function()? onTap;
   final ScrollPhysics? scrollPhysics;
-  final List<String> itemName;
-  final String itemImage;
+  final List<dynamic> itemName;
+  final List<dynamic> itemImage;
+  final List<dynamic>? itemPrice;
 
   const ItemWidgetList(
       {super.key,
       required this.index,
       required this.itemName,
       required this.itemImage,
-      this.scrollPhysics});
+      this.scrollPhysics,
+      this.itemPrice,
+      this.onTap});
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -27,7 +31,8 @@ class ItemWidgetList extends StatelessWidget {
       children: [
         ...List.generate(index, (i) {
           return ItemWidget(
-            itemPrice: " 5000 الف ريال ",
+            onTap: onTap,
+            itemPrice: itemPrice?[i],
             index: i,
             itemName: itemName[i],
             imageName: "assets/images/grape$i.png",

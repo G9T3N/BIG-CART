@@ -1,3 +1,4 @@
+import 'package:big_cart/controller/users/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class SelectCategoryScreen extends StatelessWidget {
 
     // ProductsControllerImp productsControllerImp =
     //     Get.put(ProductsControllerImp());
- 
+    ProductsControllerImp controllerImp = Get.put(ProductsControllerImp());
 
     return Scaffold(
       body: Container(
@@ -56,10 +57,21 @@ class SelectCategoryScreen extends StatelessWidget {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return CategoryWidget(
-                            onTap:controller.categoryNavigate[index],
+                            onTap: () {
+                              // controllerImp.index =
+                              //     controller.data[index]["id"];
+                              print("========index$index");
+                              controller.goToSelectedCategory(index, [
+                                {
+                                  "category_name": controller.data[index]
+                                      ["name"],
+                                  "id": controller.data[index]["id"]
+                                }
+                              ]);
+                            },
                             categoryName: controller.data[index]["name"] ??
-                               controller. categoryName[index],
-                            categoryImage:controller. categoryImage[index]);
+                                controller.categoryName[index],
+                            categoryImage: controller.categoryImage[index]);
                       },
                       // children: [
                       //   ...List.generate(

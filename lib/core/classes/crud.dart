@@ -84,14 +84,14 @@ class Crud {
   Future<Either<StatusRequest, List<dynamic>>> getData(String linkUrl,
       {String myToken = ""}) async {
     try {
+      // print("response Crud get");
       if (await checkInternet()) {
+        print(checkInternet());
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.acceptHeader: '*/*',
-            HttpHeaders.authorizationHeader:
-                "Bearer 111|8CSI1RTT2vk4tD0eSJXXE6C8xZG36vTFsb0dgQsicacecd31"
-            // ?? myToken,
+            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
+                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8"
           },
         );
 
@@ -99,9 +99,9 @@ class Crud {
         print(response.statusCode);
         print(response.body.toString());
 
-        if (response.statusCode >= 200 && response.statusCode < 406) {
+        if (response.statusCode >= 200 || response.statusCode < 406) {
           List<dynamic> responseBody = jsonDecode(response.body);
-
+          print(responseBody);
           return Right(responseBody);
         } else {
           return const Left(StatusRequest.serverfailure);
@@ -122,9 +122,8 @@ class Crud {
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.authorizationHeader:
-                "Bearer 111|8CSI1RTT2vk4tD0eSJXXE6C8xZG36vTFsb0dgQsicacecd31" ??
-                    myToken,
+            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
+                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8",
           },
         );
 
@@ -132,7 +131,7 @@ class Crud {
         print(response.statusCode);
         print(response.body.toString());
 
-        if (response.statusCode >= 200 && response.statusCode < 300) {
+        if (response.statusCode >= 200 || response.statusCode < 300) {
           dynamic responseBody = jsonDecode(response.body);
           Map<String, dynamic> data = Map<String, dynamic>.from(responseBody);
           return Right(data);
