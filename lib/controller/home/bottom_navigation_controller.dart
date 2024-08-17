@@ -1,4 +1,5 @@
 import 'package:big_cart/View/Screens/Driver_View/order.dart';
+import 'package:big_cart/View/Screens/Users_View/address/choose_address.dart';
 import 'package:big_cart/View/Screens/Users_View/cart.dart';
 import 'package:big_cart/View/Screens/Users_View/favorite.dart';
 import 'package:big_cart/View/Screens/Users_View/home.dart';
@@ -19,7 +20,7 @@ class BottomNavigationControllerImp extends BottomNavigationController {
   List<Widget> pages = <Widget>[
     const Home(),
     const SelectCategoryScreen(),
-    const Cart(),
+    const ChooseAddress(),
     const ListOfOrders(),
     const Profile(),
     // const GoogleMapScreen()

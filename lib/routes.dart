@@ -1,4 +1,5 @@
 import 'package:big_cart/View/Screens/Users_View/category_product.dart';
+import 'package:big_cart/View/Screens/onBorading/page.dart';
 import 'package:big_cart/View/Screens/onBorading/selection_screen.dart';
 import 'package:big_cart/View/Screens/Users_View/Auth/compelet_pass.dart';
 import 'package:big_cart/View/Screens/Users_View/Auth/forget_pass.dart';
@@ -34,6 +35,7 @@ import 'package:big_cart/View/Screens/farmer/auth/login_farmer.dart';
 import 'package:big_cart/View/Screens/farmer/auth/reset_password.dart';
 import 'package:big_cart/View/Screens/farmer/auth/success_reset_pass_screen.dart';
 import 'package:big_cart/View/Screens/farmer/trak_order.dart';
+import 'package:big_cart/View/Screens/onBorading/splash_screen.dart';
 import 'package:big_cart/core/Routes/app_routes.dart';
 // import 'package:big_cart/view/Screens/Driver_View/SectionsDeliverdart';
 
@@ -178,6 +180,11 @@ List<GetPage<dynamic>>? route = [
     name: AppRoute.categoryProduct,
     page: () => const CategoryProduct(),
   ),
+  GetPage(
+    name: AppRoute.spalsh,
+    page: () => SplashScreen(),
+  ),
+  
   GetPage(
     name: AppRoute.track,
     page: () => const Track(),

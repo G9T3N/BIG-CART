@@ -2,8 +2,9 @@ class AppRoute {
   //==================Auth-User===============================
   static const String userLogin = "/userLogin";
   static const String userSignup = "/userSignup";
-  static const String userResetPass = "/userResetPass ";
-  static const String userResetPassComplete = "userResetPassComplete ";
+  static const String userResetPass = "/userResetPass";
+  static const String userResetPassComplete = "/userResetPassComplete";
+  static const String spalsh = "/spalsh";
 
 //====================Users-Screens===============================
   static const String favorite = "/favorite";

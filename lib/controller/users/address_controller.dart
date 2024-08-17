@@ -11,10 +11,11 @@ import '../../core/Functions/handiling_data_controller.dart';
 import '../../core/constant/app_colors.dart';
 import '../../core/enum/status_request.dart';
 import '../../main.dart';
+
 abstract class ChooseAddressController extends GetxController {
-onTapMap(LatLng position);
-saveNewAddress();
-getAddress();
+  onTapMap(LatLng position);
+  saveNewAddress();
+  getAddress();
 }
 
 class ChooseAddressControllerImp extends ChooseAddressController {
@@ -29,8 +30,8 @@ class ChooseAddressControllerImp extends ChooseAddressController {
   late TextEditingController controllerName;
 
   final Completer<GoogleMapController> googleMapController =
-  Completer<GoogleMapController>();
-  bool isSelected =false;
+      Completer<GoogleMapController>();
+  bool isSelected = false;
   @override
   void onInit() {
     controllerCity = TextEditingController();
@@ -84,10 +85,8 @@ class ChooseAddressControllerImp extends ChooseAddressController {
         position: LatLng(myPosition!.latitude, myPosition!.longitude)));
   }
 
-
   @override
-  saveNewAddress() async{
-
+  saveNewAddress() async {
     statusRequest = StatusRequest.loading;
     Get.defaultDialog(
       titleStyle: TextStyle(color: Colors.black, fontFamily: "Almarai"),
@@ -97,25 +96,30 @@ class ChooseAddressControllerImp extends ChooseAddressController {
       ),
     );
 
-    var response = await addAddressData.postData(controllerName.text, controllerDescription.text, myPosition!.latitude.toString(), myPosition!.longitude.toString(), controllerCity.text);
+    var response = await addAddressData.postData(
+        controllerName.text,
+        controllerDescription.text,
+        myPosition!.latitude.toString(),
+        myPosition!.longitude.toString(),
+        controllerCity.text);
     print(response);
 
-    statusRequest =await handlingData(response);
+    statusRequest = await handlingData(response);
     print("$statusRequest");
-    if (response['id']!=null) {
-      statusRequest =StatusRequest.succses;
+    if (response['id'] != null) {
+      Get.back();
+
+      statusRequest = StatusRequest.succses;
       Get.snackbar("نجاح ", "تم حفظ العنوان");
       Get.toNamed(AppRoute.listOfOrders);
-    }
-    else{
+    } else {
       Get.snackbar("خطا ", "تم حفظ العنوان");
     }
-
-
   }
-List addressDataList=[];
+
+  var addressDataList;
   @override
-  getAddress() async{
+  getAddress() async {
     addressDataList.clear();
     statusRequest = StatusRequest.loading;
     Get.defaultDialog(
@@ -128,22 +132,19 @@ List addressDataList=[];
     var response = await addAddressData.getData();
     print("response from main");
     print(response);
-    addressDataList.addAll(response);
-    statusRequest =await handlingData(response);
+    addressDataList = response;
+    statusRequest = await handlingData(response);
     print("$statusRequest");
-    if (statusRequest==StatusRequest.succses) {
-      statusRequest =StatusRequest.succses;
+    if (statusRequest == StatusRequest.succses) {
+      statusRequest = StatusRequest.succses;
       Get.back();
       update();
-      for(int i=0;i<addressDataList.length;i++){
+      for (int i = 0; i < addressDataList.length; i++) {
         print(addressDataList[i]);
       }
-    }
-    else{
-      statusRequest==StatusRequest.failure;
+    } else {
+      statusRequest == StatusRequest.failure;
       update();
     }
-
-
   }
 }

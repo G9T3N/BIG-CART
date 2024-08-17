@@ -16,10 +16,10 @@ class CowScreen extends StatelessWidget {
       initState: (_) {},
       builder: (cowSplashScreenImp) {
         return SplashCategorySelected(
-            categreyName:
-                cowSplashScreenImp.splashCategoryName[controllerImp.index - 1],
-            categreyImage: cowSplashScreenImp
-                .splashCategoryImage[controllerImp.index - 1]);
+            categreyName: cowSplashScreenImp.splashCategoryName[
+                controllerImp.index - 1 == -1 ? 0 : controllerImp.index - 1],
+            categreyImage: cowSplashScreenImp.splashCategoryImage[
+                controllerImp.index - 1 == -1 ? 0 : controllerImp.index - 1]);
       },
     );
   }

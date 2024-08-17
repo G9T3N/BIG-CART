@@ -61,7 +61,6 @@ class LoginControllerImp extends LoginController {
 
     statusRequest = handlingData(response);
     //!  </ Wait to the receive the response>
-    update();
 
     if (statusRequest == StatusRequest.succses) {
       Get.back();

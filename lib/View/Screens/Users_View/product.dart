@@ -1,6 +1,8 @@
+import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:image_pixels/image_pixels.dart';
 
 import 'package:big_cart/View/Widgets/Auth/app_text_form_field.dart';
@@ -21,7 +23,8 @@ class Product extends StatelessWidget {
       required this.productName,
       required this.quantity,
       required this.price,
-      required this.description, required this.productimage});
+      required this.description,
+      required this.productimage});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -96,7 +99,9 @@ class Product extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoute.cart);
+                    },
                   ),
                 ],
               ),
@@ -177,7 +182,7 @@ class Product extends StatelessWidget {
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(120.r)),
                   child: ImagePixels.container(
-                    imageProvider:  NetworkImage(productimage),
+                    imageProvider: NetworkImage(productimage),
                     colorAlignment: Alignment.center,
                     child: SizedBox(
                       height: 300.h,
@@ -194,7 +199,7 @@ class Product extends StatelessWidget {
               Positioned(
                 top: 120.h,
                 child: Image.network(
-                 productimage,
+                  productimage,
                   width: 250.w,
                   fit: BoxFit.cover,
                 ),
