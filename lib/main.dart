@@ -6,6 +6,7 @@ import 'package:big_cart/View/Screens/Users_View/list_of_orders.dart';
 import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
 import 'package:big_cart/View/Screens/Users_View/select_category_screen.dart';
 import 'package:big_cart/View/Screens/onBorading/onborading_page_view.dart';
+import 'package:big_cart/core/services/myservices.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +24,8 @@ late SharedPreferences sharedPref;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  sharedPref = await SharedPreferences.getInstance();
+  initalServices();
+
   runApp(const MyApp());
 }
 
