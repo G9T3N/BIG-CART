@@ -48,6 +48,7 @@ dependencies:
   dartz: ^0.10.1
   lottie: ^3.1.2
   gif_view: ^0.4.4
+  cached_network_image: ^3.4.1
 
 
 dev_dependencies:

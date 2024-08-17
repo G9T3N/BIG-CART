@@ -67,11 +67,11 @@ class ItemWidget extends StatelessWidget {
                 SizedBox(height: 5.h),
                 Center(
                   child: Image.network(
-                    // "assets/images/grape$index.png",
                     imageName,
                     fit: BoxFit.cover,
                     height: 85.h,
                   ),
+                  // "assets/images/grape$index.png",
                 ),
                 SizedBox(height: 5.h),
 

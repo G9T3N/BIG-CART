@@ -45,6 +45,38 @@ class Crud {
     }
   }
 
+  Future<Either<StatusRequest, Map>> postMapData(String linkUrl, Map data,
+      {String myToken = ""}) async {
+    try {
+      if (await checkInternet()) {
+        var response = await http.post(
+            Uri.parse(
+              linkUrl,
+            ),
+            headers: {
+              HttpHeaders.authorizationHeader: c.sharedPref.getString('token')!
+            },
+            body: data);
+
+        print("response Crud");
+        print(response.statusCode);
+
+        print(response.body.toString());
+        if (response.statusCode >= 200 || response.statusCode != 404) {
+          Map responseBody = jsonDecode(
+            response.body,
+          );
+          return Right(responseBody);
+        } else {
+          return const Left(StatusRequest.serverfailure);
+        }
+      } else {
+        return const Left(StatusRequest.offlinefailure);
+      }
+    } catch (e) {
+      return const Left(StatusRequest.serverfailure);
+    }
+  }
 //   Future<Either<StatusRequest, Map>> getData(String linkUrl, {String myToken=""}) async {
 //     try {
 //       if (await checkInternet()) {

@@ -3,11 +3,13 @@ import 'package:big_cart/View/Screens/Driver_View/google_map.dart';
 import 'package:big_cart/View/Screens/Driver_View/order.dart';
 import 'package:big_cart/View/Screens/Users_View/Auth/login.dart';
 import 'package:big_cart/View/Screens/Users_View/accept_order.dart';
+import 'package:big_cart/View/Screens/Users_View/address/choose_address.dart';
 import 'package:big_cart/View/Screens/Users_View/category_product.dart';
 import 'package:big_cart/View/Screens/Users_View/list_of_orders.dart';
 import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
 import 'package:big_cart/View/Screens/Users_View/select_category_screen.dart';
 import 'package:big_cart/View/Screens/onBorading/onborading_page_view.dart';
+import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:big_cart/core/services/myservices.dart';
 // =======
 // >>>>>>> main
@@ -55,34 +57,39 @@ class MyApp extends StatelessWidget {
 
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (context, child) {
+        MyServices c = Get.put(MyServices());
         return GetMaterialApp(
-            initialBinding: IntialBindings(),
-            builder: (context, child) {
-              final originalTextScaleFactor = MediaQuery.of(context).textScaler;
-              final boldText = MediaQuery.boldTextOf(context);
-              final newMediaQueryData = MediaQuery.of(context).copyWith(
-                textScaler: originalTextScaleFactor.clamp(
-                  minScaleFactor: 0.8.sp,
-                  maxScaleFactor: 1.0.sp,
-                ),
-                boldText: boldText,
-              );
-              return MediaQuery(data: newMediaQueryData, child: child!);
-            },
-            getPages: route,
-            locale: const Locale('ar'),
-            debugShowCheckedModeBanner: false,
-            title: 'First Method',
-            // You can use the library anywhere in the app even in theme
-            theme: AppThemes.appLightTheme,
-            home:
-                // Directionality(textDirection: TextDirection.rtl, child: )
-                child!
-            //  ),
+          initialRoute: c.sharedPref.getInt("role") == null
+              ? AppRoute.spalsh
+              : c.sharedPref.getInt("role") == 1
+                  ? AppRoute.home
+                  : AppRoute.googleMapScreen,
+          initialBinding: IntialBindings(),
+          builder: (context, child) {
+            final originalTextScaleFactor = MediaQuery.of(context).textScaler;
+            final boldText = MediaQuery.boldTextOf(context);
+            final newMediaQueryData = MediaQuery.of(context).copyWith(
+              textScaler: originalTextScaleFactor.clamp(
+                minScaleFactor: 0.8.sp,
+                maxScaleFactor: 1.0.sp,
+              ),
+              boldText: boldText,
             );
+            return MediaQuery(data: newMediaQueryData, child: child!);
+          },
+          getPages: route,
+          locale: const Locale('ar'),
+          debugShowCheckedModeBanner: false,
+          title: 'First Method',
+          // You can use the library anywhere in the app even in theme
+          theme: AppThemes.appLightTheme,
+          // Directionality(textDirection: TextDirection.rtl, child: )
+
+          //  ),
+        );
       },
 // <<<<<<< main
-      child: const Login(),
+      // child: const Login(),
 // =======
 //       child: const AcceptOrder(),
 // >>>>>>> main

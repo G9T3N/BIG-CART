@@ -105,7 +105,9 @@ class ProductsControllerImp extends ProductsController {
       // Get.back();
       //?fetch data success than store user data and login
       if (response[0]['id'] != null) {
+        data.clear();
         data.addAll(response);
+
         // print(response['role_id']);
         // if (response['role_id'] == 1) {
         // print("${response['token']}");

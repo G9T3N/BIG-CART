@@ -31,9 +31,6 @@ class Home extends StatelessWidget {
     ];
     return AppScaffold(
         isPadding: false,
-        drawer: const Drawer(
-          backgroundColor: Colors.white,
-        ),
         child: Container(
           height: double.infinity,
           width: double.infinity,
@@ -47,6 +44,13 @@ class Home extends StatelessWidget {
           child: Column(children: [
             // const Drawer(),
             AppBar(
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoute.favorite);
+                    },
+                    icon: Icon(Icons.favorite_border_outlined))
+              ],
               clipBehavior: Clip.antiAlias,
               systemOverlayStyle: const SystemUiOverlayStyle(
                   systemNavigationBarColor: Colors.transparent),

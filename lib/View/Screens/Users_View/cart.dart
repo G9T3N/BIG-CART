@@ -1,7 +1,9 @@
+import 'package:big_cart/View/Screens/Users_View/payment.dart';
 import 'package:big_cart/View/Widgets/app_button.dart';
 import 'package:big_cart/View/widget/driver/cart/custom_card_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Cart extends StatelessWidget {
   const Cart({super.key});
@@ -85,6 +87,9 @@ class Cart extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 10.h),
                   child: AppButton(
+                    onPressed: () {
+                      Get.to(Payment());
+                    },
                     child: Text(
                       "الدفع",
                       style: Theme.of(context).textTheme.titleLarge,
