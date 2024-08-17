@@ -1,10 +1,13 @@
 import 'package:big_cart/core/Routes/app_routes.dart';
+import 'package:big_cart/core/services/myservices.dart';
+import 'package:big_cart/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {}
 
 class ProfileControllerImp extends ProfileController {
+
   List<String> tileText = <String>[
     " نبذة عني",
     "طلبي",
@@ -30,10 +33,11 @@ class ProfileControllerImp extends ProfileController {
     },
     () {},
     () {},
+    () {},
     () {
-    
-    },
-    () {
+  MyServices c = Get.put(MyServices());
+
+      c.sharedPref.clear();
       Get.toNamed(AppRoute.selectionScreen);
     },
   ];

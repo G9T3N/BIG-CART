@@ -1,3 +1,5 @@
+import 'package:big_cart/core/services/myservices.dart';
+import 'package:big_cart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,6 +13,8 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      MyServices c = Get.put(MyServices());
+
     ProfileControllerImp controllerImp = Get.put(ProfileControllerImp());
     return AppScaffold(
       isPadding: false,
@@ -100,17 +104,17 @@ class Profile extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              'اسم المستخدم',
+                              c.sharedPref.getString("name").toString(),
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             SizedBox(height: 5.h),
                             Text(
-                              'username@gmail.com',
+                              c.sharedPref.getString("email").toString(),
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                             SizedBox(height: 5.h),
                             Text(
-                              "967733333333+",
+                              c.sharedPref.getString("phone").toString(),
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ],

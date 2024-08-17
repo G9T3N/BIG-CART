@@ -4,13 +4,17 @@ import 'dart:io';
 import 'package:big_cart/core/Api/api_link.dart';
 import 'package:big_cart/core/Functions/check_internet.dart';
 import 'package:big_cart/core/enum/status_request.dart';
+import 'package:big_cart/core/services/myservices.dart';
 import 'package:big_cart/main.dart';
 import 'package:dartz/dartz.dart';
+import 'package:get/get.dart';
 // import 'package:heal_me/Core/Class/status_request.dart';
 // import 'package:heal_me/Core/Functions/check_internet.dart';
 import 'package:http/http.dart' as http;
 
 class Crud {
+  MyServices c = Get.put(MyServices());
+
   Future<Either<StatusRequest, Map>> postData(String linkUrl, Map data,
       {String myToken = ""}) async {
     try {
@@ -19,10 +23,6 @@ class Crud {
             Uri.parse(
               linkUrl,
             ),
-            headers: {
-              HttpHeaders.authorizationHeader:
-                  sharedPref.getString('token') ?? myToken
-            },
             body: data);
 
         print("response Crud");
@@ -54,7 +54,7 @@ class Crud {
 //             ),
 //             headers: {
 //               HttpHeaders.authorizationHeader:
-//               sharedPref.getString('token') ?? myToken
+//               c.sharedPref.getString('token') ?? myToken
 //             },
 //            );
 // print("response Crud");
@@ -90,8 +90,9 @@ class Crud {
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
-                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8"
+            HttpHeaders.authorizationHeader:
+                c.sharedPref.getString("token") ?? ""
+            // "Bearer 9|Kh1toMFgkHETcdxedz9BDFet1BNXEt1Qd1N8sJo286fc6d7f",
           },
         );
 
@@ -122,8 +123,10 @@ class Crud {
         var response = await http.get(
           Uri.parse(linkUrl),
           headers: {
-            HttpHeaders.authorizationHeader: sharedPref.getString("token") ??
-                "Bearer 5|EQujzFZywQFJvDQRgnVWYcwEByPX7lqPOz1uKDjS5e9fffd8",
+            HttpHeaders.authorizationHeader:
+                c.sharedPref.getString("token") ?? ""
+
+            // "Bearer 9|Kh1toMFgkHETcdxedz9BDFet1BNXEt1Qd1N8sJo286fc6d7f",
           },
         );
 
@@ -152,7 +155,7 @@ class Crud {
 //       if (await checkInternet()) {
 //         var headersList = {
 //           'Accept': '*/*',
-//           'Authorization': sharedPref.getString('token') ?? ""
+//           'Authorization': c.sharedPref.getString('token') ?? ""
 //         };
 //         var url = Uri.parse(linkurl);
 
@@ -173,7 +176,7 @@ class Crud {
 //         //   Uri.parse(linkurl),
 //         //   headers: {
 //         //     HttpHeaders.authorizationHeader:
-//         //         sharedPref.getString('token') ?? "",
+//         //         c.sharedPref.getString('token') ?? "",
 //         //   },
 
 //         // );

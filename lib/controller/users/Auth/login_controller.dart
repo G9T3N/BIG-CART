@@ -3,6 +3,7 @@ import 'package:big_cart/core/Functions/handiling_data_controller.dart';
 import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:big_cart/core/constant/app_colors.dart';
 import 'package:big_cart/core/enum/status_request.dart';
+import 'package:big_cart/core/services/myservices.dart';
 import 'package:big_cart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,8 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController {
+  MyServices c = Get.put(MyServices());
+
   LoginData loginData = LoginData(Get.find());
 
   late TextEditingController email;
@@ -70,11 +73,15 @@ class LoginControllerImp extends LoginController {
           // store received data
           data = response['user'];
           // make sure that you have token
+          c.sharedPref.setString("name", response['user']['name']);
+          c.sharedPref.setString("email", response['user']['email']);
+          c.sharedPref.setString("phone", response['user']['phone']);
+          c.sharedPref.setInt("role", response['role_id']);
 
           // store token
 
-          sharedPref.setString(
-              "token", "Bearer ${response['token']}".toString());
+          c.sharedPref
+              .setString("token", "Bearer ${response['token']}".toString());
           update();
 
           // Get.defaultDialog(

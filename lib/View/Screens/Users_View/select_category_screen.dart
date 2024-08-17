@@ -1,3 +1,4 @@
+import 'package:big_cart/controller/users/cow_splash_screen.dart';
 import 'package:big_cart/controller/users/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,11 +59,12 @@ class SelectCategoryScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return CategoryWidget(
                             onTap: () {
-                              // controllerImp.index =
-                              //     controller.data[index]["id"];
+                              controllerImp.index =
+                                  controller.data[index]["id"];
                               print("========index$index");
                               controller.goToSelectedCategory(index, [
                                 {
+                                  "index": index,
                                   "category_name": controller.data[index]
                                       ["name"],
                                   "id": controller.data[index]["id"]
