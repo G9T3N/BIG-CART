@@ -80,7 +80,7 @@ class LoginControllerDriverImp extends LoginControllerDriver {
 
           //navigate to the next page
 
-          Get.offAllNamed(AppRoute.driverOrder);
+          Get.offAllNamed(AppRoute.trackOrder);
 
           //!</ accept case>
         } else {

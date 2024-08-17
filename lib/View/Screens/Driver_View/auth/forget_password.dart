@@ -1,7 +1,10 @@
 import 'package:big_cart/View/widget/auth/login/custom_button.dart';
 import 'package:big_cart/View/widget/auth/login/custom_container_login.dart';
 import 'package:big_cart/View/widget/auth/login/custom_text_form_field.dart';
+import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ForgetPasswordDriver extends StatelessWidget {
   const ForgetPasswordDriver({super.key});
@@ -47,7 +50,9 @@ class ForgetPasswordDriver extends StatelessWidget {
                   height: 24.0,
                 ),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoute.driverResetPass);
+                  },
                   text: "ارسال",
                 )
               ],

@@ -1,3 +1,4 @@
+// <<<<<<< main
 import 'package:big_cart/View/Screens/Driver_View/google_map.dart';
 import 'package:big_cart/View/Screens/Driver_View/order.dart';
 import 'package:big_cart/View/Screens/Users_View/accept_order.dart';
@@ -7,7 +8,11 @@ import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
 import 'package:big_cart/View/Screens/Users_View/select_category_screen.dart';
 import 'package:big_cart/View/Screens/onBorading/onborading_page_view.dart';
 import 'package:big_cart/core/services/myservices.dart';
+// =======
+// >>>>>>> main
 
+import 'package:big_cart/view/Screens/farmer/auth/login_farmer.dart';
+import 'package:big_cart/view/Screens/onBorading/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -78,9 +83,7 @@ class MyApp extends StatelessWidget {
             );
       },
 // <<<<<<< main
-      // child: const Favorite(),
-      child: const MainUserScreen(),
-
+      child: const SplashScreen(),
 // =======
 //       child: const AcceptOrder(),
 // >>>>>>> main

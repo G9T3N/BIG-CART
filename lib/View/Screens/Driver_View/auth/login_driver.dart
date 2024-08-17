@@ -2,6 +2,7 @@ import 'package:big_cart/View/widget/auth/login/custom_button.dart';
 import 'package:big_cart/View/widget/auth/login/custom_container_login.dart';
 import 'package:big_cart/View/widget/auth/login/custom_text_form_field.dart';
 import 'package:big_cart/controller/driver/Auth/login_controller.dart';
+import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:big_cart/core/Widgets/app_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,7 +62,24 @@ class LoginDriver extends StatelessWidget {
                     SizedBox(
                       height: 20.0.h,
                     ),
-                    const Text("هل نسيت كلمة المرور؟"),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: TextButton(
+                          onPressed: () {
+                            Get.toNamed(AppRoute.driverForgetPassword);
+                          },
+                          child: Text(
+                            'هل نسيت كلمة السر؟',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 )),
                 SizedBox(
