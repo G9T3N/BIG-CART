@@ -34,6 +34,7 @@ class AppRoute {
   static const String driverLogin = "/driverLogin";
   static const String driverForgetPassword = "/driverForgetPassword";
   static const String driverResetPass = "/driverResetPass";
+   static const String SectionsDeliver = "/SectionsDeliver";
   static const String driverResetPassSuccess = "/driverResetPassSuccess";
 //====================Driver-Screens===============================
 

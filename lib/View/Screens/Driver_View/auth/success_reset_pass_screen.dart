@@ -1,7 +1,10 @@
+import 'package:big_cart/core/Routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:big_cart/View/widget/auth/login/custom_button.dart';
 import 'package:big_cart/View/widget/auth/login/custom_success_container.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SuccessResetPassScreenDriver extends StatelessWidget {
   const SuccessResetPassScreenDriver({super.key});
@@ -23,7 +26,9 @@ class SuccessResetPassScreenDriver extends StatelessWidget {
               const CustomSuccessContainer(),
               const Spacer(),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(AppRoute.SectionsDeliver);
+                },
                 text: "تم",
               ),
               const Spacer(),

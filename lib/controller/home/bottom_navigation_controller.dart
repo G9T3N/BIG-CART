@@ -4,6 +4,7 @@ import 'package:big_cart/View/Screens/Users_View/favorite.dart';
 import 'package:big_cart/View/Screens/Users_View/home.dart';
 import 'package:big_cart/View/Screens/Users_View/list_of_orders.dart';
 import 'package:big_cart/View/Screens/Users_View/profile.dart';
+import 'package:big_cart/view/Screens/Driver_View/google_map.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,8 @@ class BottomNavigationControllerImp extends BottomNavigationController {
     const Favorite(),
     const Cart(),
     const ListOfOrders(),
-    const Profile()
+    const Profile(),
+    const GoogleMapScreen()
   ];
   List<Icon> icons = <Icon>[
     const Icon(
