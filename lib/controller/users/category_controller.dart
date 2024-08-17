@@ -79,6 +79,6 @@ class CategoryControllerImp extends CategoryController {
 
   @override
   goToSelectedCategory(int index, List arguments) {
-    Get.toNamed(categoryNavigate[index], arguments: arguments);
+    Get.toNamed(AppRoute.cowScreen, arguments: arguments);
   }
 }

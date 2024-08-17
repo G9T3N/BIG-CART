@@ -1,6 +1,7 @@
 // <<<<<<< main
 import 'package:big_cart/View/Screens/Driver_View/google_map.dart';
 import 'package:big_cart/View/Screens/Driver_View/order.dart';
+import 'package:big_cart/View/Screens/Users_View/Auth/login.dart';
 import 'package:big_cart/View/Screens/Users_View/accept_order.dart';
 import 'package:big_cart/View/Screens/Users_View/category_product.dart';
 import 'package:big_cart/View/Screens/Users_View/list_of_orders.dart';
@@ -11,8 +12,6 @@ import 'package:big_cart/core/services/myservices.dart';
 // =======
 // >>>>>>> main
 
-import 'package:big_cart/view/Screens/farmer/auth/login_farmer.dart';
-import 'package:big_cart/view/Screens/onBorading/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,12 +24,12 @@ import 'package:big_cart/View/Screens/Users_View/favorite.dart';
 import 'package:big_cart/core/Theme/theme.dart';
 import 'package:big_cart/routes.dart';
 
-late SharedPreferences sharedPref;
+// late SharedPreferences sharedPref;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initalServices();
-
+  // sharedPref = await SharedPreferences.getInstance();
+  await initalServices();
   runApp(const MyApp());
 }
 
@@ -83,7 +82,7 @@ class MyApp extends StatelessWidget {
             );
       },
 // <<<<<<< main
-      child: const SplashScreen(),
+      child: const Login(),
 // =======
 //       child: const AcceptOrder(),
 // >>>>>>> main

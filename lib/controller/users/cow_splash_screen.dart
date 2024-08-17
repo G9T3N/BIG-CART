@@ -3,6 +3,7 @@ import 'package:big_cart/View/Screens/Users_View/category_product.dart';
 import 'package:big_cart/View/Screens/Users_View/home.dart';
 import 'package:big_cart/View/Screens/Users_View/main_user_screen.dart';
 import 'package:big_cart/View/Screens/onBorading/onborading_page_view.dart';
+import 'package:big_cart/controller/users/category_controller.dart';
 import 'package:big_cart/controller/users/products_controller.dart';
 import 'package:big_cart/core/enum/status_request.dart';
 // import 'package:big_cart/View/Screens/login.dart';
@@ -14,6 +15,7 @@ abstract class CowSplashScreen extends GetxController {
 
 class CowSplashScreenImp extends CowSplashScreen {
   ProductsControllerImp controllerImp = Get.put(ProductsControllerImp());
+
   @override
   void onInit() {
     super.onInit();
@@ -21,6 +23,18 @@ class CowSplashScreenImp extends CowSplashScreen {
     Get.arguments;
   }
 
+  List<String> splashCategoryImage = const <String>[
+    "assets/images/cart.png",
+    "assets/images/grains1.png",
+    "assets/images/fruitscart.png",
+    "assets/images/caw.png",
+  ];
+  List<String> splashCategoryName = const <String>[
+    "خضروات",
+    "حبوب",
+    "فواكة",
+    "المواشي والدواجن",
+  ];
   @override
   goToHome() async {
     await controllerImp.showProductsOfSingleCategory();

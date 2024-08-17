@@ -1,3 +1,4 @@
+import 'package:big_cart/View/Screens/Users_View/category_product.dart';
 import 'package:big_cart/View/Screens/onBorading/selection_screen.dart';
 import 'package:big_cart/View/Screens/Users_View/Auth/compelet_pass.dart';
 import 'package:big_cart/View/Screens/Users_View/Auth/forget_pass.dart';
@@ -34,7 +35,7 @@ import 'package:big_cart/View/Screens/farmer/auth/reset_password.dart';
 import 'package:big_cart/View/Screens/farmer/auth/success_reset_pass_screen.dart';
 import 'package:big_cart/View/Screens/farmer/trak_order.dart';
 import 'package:big_cart/core/Routes/app_routes.dart';
-import 'package:big_cart/view/Screens/Driver_View/SectionsDeliverdart';
+// import 'package:big_cart/view/Screens/Driver_View/SectionsDeliverdart';
 
 import 'package:get/get.dart';
 import 'package:big_cart/View/Screens/Users_View/favorite.dart';
@@ -169,9 +170,13 @@ List<GetPage<dynamic>>? route = [
     name: AppRoute.driverOrder,
     page: () => const Order(),
   ),
+  // GetPage(
+  //   name: AppRoute.SectionsDeliver,
+  //   page: () => const SectionsDeliver(),
+  // ),
   GetPage(
-    name: AppRoute.SectionsDeliver,
-    page: () => const SectionsDeliver(),
+    name: AppRoute.categoryProduct,
+    page: () => const CategoryProduct(),
   ),
   GetPage(
     name: AppRoute.track,

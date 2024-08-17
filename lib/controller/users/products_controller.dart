@@ -18,7 +18,7 @@ abstract class ProductsController extends GetxController {
 class ProductsControllerImp extends ProductsController {
   // CategoryControllerImp categoryControllerImp =
   //     Get.put(CategoryControllerImp());
-  String productIdQueryParameter = '';
+  // String productIdQueryParameter = '';
   // String categoryIdQueryParameter = '';
 
   ProductData productData = ProductData(Get.find());
@@ -29,7 +29,7 @@ class ProductsControllerImp extends ProductsController {
   var data = [];
   Map<String, dynamic> singleProductData = {};
 
-  // int index = 0;
+  int index = 0;
 
   // ! <login with Mysql>
   @override
@@ -168,7 +168,7 @@ class ProductsControllerImp extends ProductsController {
     // wariningDialog(_, 20, statusRequest);
     print("$statusRequest");
 
-    var response = await productData.getProductsOfSingleCategory(4);
+    var response = await productData.getProductsOfSingleCategory(index);
     print(response);
     statusRequest = handlingData(response);
     data = response;

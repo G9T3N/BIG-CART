@@ -1,3 +1,4 @@
+//صفحة السرفر عند تشغيل اي شي في البداية يتم اضافة هناء
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';

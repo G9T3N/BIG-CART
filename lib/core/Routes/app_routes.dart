@@ -28,14 +28,14 @@ class AppRoute {
   static const String acceptOrder = "/acceptOrder";
   static const String cart = "/cart";
   static const String cowScreen = "/cowScreen";
-  static const String singleCategoryProduct = "/singleCategoryProduct";
+  static const String categoryProduct = "/categoryProduct";
 
 //====================Auth-Driver===============================
 
   static const String driverLogin = "/driverLogin";
   static const String driverForgetPassword = "/driverForgetPassword";
   static const String driverResetPass = "/driverResetPass";
-   static const String SectionsDeliver = "/SectionsDeliver";
+  static const String SectionsDeliver = "/SectionsDeliver";
   static const String driverResetPassSuccess = "/driverResetPassSuccess";
 //====================Driver-Screens===============================
 
